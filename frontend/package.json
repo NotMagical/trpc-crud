@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@trpc/client": "^10.5.0",
+    "@trpc/server": "^10.5.0",
     "@vueuse/core": "^8.6.0",
     "vue": "^3.2.25"
   },

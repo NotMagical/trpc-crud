@@ -1,6 +1,7 @@
 import { inferAsyncReturnType, initTRPC } from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import express from "express";
+import cors from 'cors'
 import { z } from "zod";
 
 // created for each request
@@ -27,6 +28,7 @@ export const appRouter = t.router({
 export type AppRouter = typeof appRouter;
 
 const app = express();
+app.use(cors())
 app.use(
   "/trpc",
   trpcExpress.createExpressMiddleware({

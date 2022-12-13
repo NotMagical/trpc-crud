@@ -6,8 +6,8 @@ import HelloWorld from './components/HelloWorld.vue';
 
 <template>
   <div class="mt-12 text-center text-slate-800">
-    <div class="flex justify-center items-center">
-      <MdiAccountBox class="w-12 h-12 text-green-500" />
+    <div class="flex items-center justify-center">
+      <MdiAccountBox class="h-12 w-12 text-green-500" />
     </div>
 
     <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />

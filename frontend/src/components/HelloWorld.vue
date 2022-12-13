@@ -28,7 +28,7 @@ const count = ref(0);
     <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
   </p>
 
-  <button type="button" class="px-2 py-1 border border-gray-700" @click="count++">
+  <button type="button" class="border border-gray-700 px-2 py-1" @click="count++">
     count is: {{ count }}
   </button>
   <p>
