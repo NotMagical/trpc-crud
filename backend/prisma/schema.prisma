@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Whenever you make changes to your Prisma schema in the future, 
+// you manually need to invoke prisma generate in order to accommodate the changes in your Prisma Client API.
+generator client {
+  provider = "prisma-client-js"
+}
+
+// If using mongodb atlas, replace the question mark "?" in the connection string to "%3F"
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Comment {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  comment String
+  post    Post   @relation(fields: [postId], references: [id])
+  postId  String @db.ObjectId
+}
+
+model Post {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  slug     String    @unique
+  title    String
+  body     String
+  author   User      @relation(fields: [authorId], references: [id])
+  authorId String    @db.ObjectId
+  comments Comment[]
+}
+
+model User {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  email   String   @unique
+  name    String?
+  address Address?
+  posts   Post[]
+}
+
+// Address is an embedded document
+type Address {
+  street String
+  city   String
+  state  String
+  zip    String
+}
