@@ -12,6 +12,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Todo {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  status    Boolean
+  createdAt DateTime
+}
+
 model Comment {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   comment String

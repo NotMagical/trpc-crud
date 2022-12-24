@@ -1,5 +1,9 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import './main.css';
-import './trpc';
-createApp(App).mount('#app');
+import './app.css'
+import App from './App.svelte'
+import './api.ts'
+
+const app = new App({
+  target: document.getElementById('app'),
+})
+
+export default app
